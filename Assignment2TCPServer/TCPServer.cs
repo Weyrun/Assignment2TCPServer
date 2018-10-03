@@ -1,7 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using Assignment1DLL;
 
 namespace Assignment2TCPServer
 {
@@ -27,22 +29,35 @@ namespace Assignment2TCPServer
             }
         }
 
-
         public void DoClient(TcpClient socket)
         {
             using (StreamReader sr = new StreamReader(socket.GetStream()))
             using (StreamWriter sw = new StreamWriter(socket.GetStream()))
             {
+                
                 string incommingStr = sr.ReadLine();
 
-                string result;
+                string[] input = incommingStr.Split(' ');
 
-                if (incommingStr == "TOGRAM")
+                string command = input[0];
+                double number = Convert.ToDouble(input[1]);
+                string result = "";
+
+
+                if (command == "TOGRAM")
                 {
-
+                    result = $"{Convertion.ConvertToGram(number)} g";
+                }
+                if (command == "TOOUNCES")
+                {
+                    result = $"{Convertion.ConvertToOunces(number)} oz";
                 }
 
-                sw.WriteLine(incommingStr);
+
+                
+                Console.WriteLine($"{command} {number}");
+                Console.WriteLine(result);
+                sw.WriteLine(result);
                 sw.Flush();
             } //useing ending => close forbindelse til socket / Client
         }

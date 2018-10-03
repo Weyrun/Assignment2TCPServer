@@ -6,8 +6,14 @@ namespace Assignment3TCPClient
     {
         static void Main(string[] args)
         {
-            TCPClient client = new TCPClient();
-            client.start();
+            Console.WriteLine("Client");
+            Console.WriteLine("Press ESC to close");
+
+            while (Console.ReadKey(true).Key != ConsoleKey.Escape)
+            {             
+                TCPClient client = new TCPClient();
+                client.start();
+            }
         }
     }
 }

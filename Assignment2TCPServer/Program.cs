@@ -6,8 +6,12 @@ namespace Assignment2TCPServer
     {
         static void Main(string[] args)
         {
-            TCPServer server = new TCPServer();
-            server.start();
+            Console.WriteLine("Server");
+            
+                TCPServer server = new TCPServer();
+                server.start();
+
+            Console.ReadLine();
         }
     }
 }
