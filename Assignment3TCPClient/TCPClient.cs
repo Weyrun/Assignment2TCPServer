@@ -21,9 +21,7 @@ namespace Assignment3TCPClient
 
                 using (StreamReader sr = new StreamReader(ns))
                 using (StreamWriter sw = new StreamWriter(ns))
-                {
-                    
-                    
+                {                   
                     sw.WriteLine(Console.ReadLine());
                     sw.Flush();
 

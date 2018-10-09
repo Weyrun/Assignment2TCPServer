@@ -36,30 +36,25 @@ namespace Assignment2TCPServer
             {
                 
                 string incommingStr = sr.ReadLine();
-
                 string[] input = incommingStr.Split(' ');
-
                 string command = input[0];
                 double number = Convert.ToDouble(input[1]);
                 string result = "";
 
-
                 if (command == "TOGRAM")
                 {
-                    result = $"{Convertion.ConvertToGram(number)} g";
+                    result = $"Result = {Convertion.ConvertToGram(number)} g";
                 }
                 if (command == "TOOUNCES")
                 {
-                    result = $"{Convertion.ConvertToOunces(number)} oz";
+                    result = $"Result = {Convertion.ConvertToOunces(number)} oz";
                 }
-
-
                 
                 Console.WriteLine($"{command} {number}");
                 Console.WriteLine(result);
                 sw.WriteLine(result);
                 sw.Flush();
-            } //useing ending => close forbindelse til socket / Client
+            }
         }
     }
     

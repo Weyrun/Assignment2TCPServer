@@ -8,8 +8,8 @@ namespace Assignment2TCPServer
         {
             Console.WriteLine("Server");
             
-                TCPServer server = new TCPServer();
-                server.start();
+            TCPServer server = new TCPServer();
+            server.start();
 
             Console.ReadLine();
         }
